@@ -363,22 +363,25 @@ var control_empresa_list = function(path) {
                 return false;
             });
 
-            // Navegar por la paginación capturando las teclas Re Pág - Av Pág   
+            // Navegar por la paginación capturando las teclas.
+            window.onkeydown = tecla;
+            function tecla(event) {
+                event.preventDefault();
+                num = event.keyCode;
+                if (num == 112) {
+                    
+//                  alert("Pulsaste F1");                    
+                    //var id = $(prefijo_div + '.pagination_link').val($(this).attr('id'));                    
+                    
+                    rpp = $(prefijo_div + "#rpp option:selected").text();  
+                    thisObject.inicia(view, ++pag, order, ordervalue, rpp, filter, filteroperator, filtervalue, callback, systemfilter, systemfilteroperator, systemfiltervalue);
+                    return false;
+                }
 
-//            window.onkeydown = tecla;
-//            function tecla(event) {
-//                event.preventDefault();
-//                num = event.keyCode;
-//                if (num == 112)
-////                    alert("Pulsaste F1");
-//    
-//    
-//
-//                if (num == 123) {
-////                    alert("Pulsaste F12"); 
-//
-//                }
-//            }
+                if (num == 123) {
+//                    alert("Pulsaste F12"); 
+                }
+            }
 
 
 
